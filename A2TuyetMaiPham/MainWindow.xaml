@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:A2TuyetMaiPham"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <ComboBox x:Name="cmbContinents" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="120"/>
         <ListBox x:Name="lstCountries" d:ItemsSource="{d:SampleData ItemCount=5}" Height="NaN" Margin="153,67,497,218" Width="NaN"/>

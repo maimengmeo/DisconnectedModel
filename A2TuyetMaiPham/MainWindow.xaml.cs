@@ -20,9 +20,18 @@ namespace A2TuyetMaiPham
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Data data = new Data();
+        private CrudOp crud = new CrudOp();
+        
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            cmbContinents.ItemsSource = crud.GetContinents().DefaultView;
+            cmbContinents.DisplayMemberPath = "ContinentName";
         }
     }
 }
