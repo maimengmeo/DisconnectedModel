@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <ComboBox x:Name="cmbContinents" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cmbContinents" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbContinents_SelectionChanged"/>
         <ListBox x:Name="lstCountries" d:ItemsSource="{d:SampleData ItemCount=5}" Height="NaN" Margin="153,67,497,218" Width="NaN"/>
         <Label x:Name="lblLanguages" Content="Label" HorizontalAlignment="Left" Margin="328,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.368,0.579" Width="183"/>
         <Label x:Name="lblCurrency" Content="Label" HorizontalAlignment="Left" Margin="328,116,0,0" VerticalAlignment="Top" Width="183"/>

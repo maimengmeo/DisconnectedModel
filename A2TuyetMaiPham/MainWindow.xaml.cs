@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace A2TuyetMaiPham
 {
@@ -21,7 +22,8 @@ namespace A2TuyetMaiPham
     public partial class MainWindow : Window
     {
         private Data data = new Data();
-        private CrudOp crud = new CrudOp();
+        private CrudOpContinents crudContinents = new CrudOpContinents();
+        private CrudOpCountries crudCountries = new CrudOpCountries();  
         
         public MainWindow()
         {
@@ -30,8 +32,24 @@ namespace A2TuyetMaiPham
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cmbContinents.ItemsSource = crud.GetContinents().DefaultView;
+            cmbContinents.ItemsSource = crudContinents.GetContinents().DefaultView;
             cmbContinents.DisplayMemberPath = "ContinentName";
+            cmbContinents.SelectedValuePath = "ContinentId";
+        }
+
+        private void cmbContinents_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int continentId = Convert.ToInt32(cmbContinents.SelectedValue);
+
+            DataRow[] countries = crudCountries.GetCountries(continentId);
+
+            lstCountries.Items.Clear();
+
+            foreach (DataRow country in countries) 
+            {
+                lstCountries.Items.Add(country["CountryName"]);
+            }
+            
         }
     }
 }
